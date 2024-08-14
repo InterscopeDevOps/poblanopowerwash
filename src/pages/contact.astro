@@ -19,6 +19,8 @@ const aboutSection = data?.sectionsHomeAbout.filter(
 const dataBlocks = data?.sectionsHomeAbout.filter(
   (section: SectionsHomeAbout) => section.section === "blocks",
 );
+
+
 ---
 
 <Layout
@@ -39,6 +41,6 @@ const dataBlocks = data?.sectionsHomeAbout.filter(
       dataRedes={data.redesSociales}
     />
   </div>
-  <MapaContent locations={data.dataGeneral.location} client:load/>
+  <MapaContent locations={data.dataGeneral.location} milesCover={data.milesCover} client:load/>
   <ContentContact dataGlobal={data} bgImage={data.gallery[1]} client:load />
 </Layout>

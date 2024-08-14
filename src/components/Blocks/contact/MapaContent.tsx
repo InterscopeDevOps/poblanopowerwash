@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import type { Location } from "@/interfaces/dbData";
+import type { Location, ApiData } from "@/interfaces/dbData";
 
 interface MapaTabProps {
     locations: Location[];
+    milesCover: string;
 }
 
-const MapaTab: React.FC<MapaTabProps> = ({ locations }) => {
+const MapaTab: React.FC<MapaTabProps> = ({ locations, milesCover }) => {
     const [selectedTab, setSelectedTab] = useState(0);
     const [showLocations, setShowLocations] = useState(false);
     const [animateMenu, setAnimateMenu] = useState('')
     const [locationName, setLocationName] = useState(locations[0].city);
+
 
 
     const handleTabClick = (index: number, title: string) => {
@@ -39,8 +41,7 @@ const MapaTab: React.FC<MapaTabProps> = ({ locations }) => {
 
     return (
         <div className="flex flex-col overflow-hidden">
-            <h2 className="text-3xl md:text-4xl font-semibold text-center text-white capitalize bg-secondary p-5">	
-            we cover 80 miles around of:</h2>
+           
             <div className="w-full h-[500px] md:h-[650px] relative ">
                 <iframe
                     src={locations[selectedTab].urlCity}
@@ -94,6 +95,16 @@ const MapaTab: React.FC<MapaTabProps> = ({ locations }) => {
                         </div>
                     </div>
                 )}
+            </div>
+            <div className=' w-4/5 h-auto p-6 bg-primary -mt-10 z-10 rounded-r-full'>
+                {
+                    milesCover && milesCover.length > 0 ? (
+                        <h2 className="text-3xl md:text-4xl font-semibold text-center text-white capitalize">we cover {milesCover} miles around the {locationName}</h2>
+                    ) : (
+                        <h2 className="text-3xl md:text-4xl font-semibold text-center text-white capitalize">we cover entire city of  {locationName}</h2>
+                    )
+                }
+                
             </div>
         </div>
     );
