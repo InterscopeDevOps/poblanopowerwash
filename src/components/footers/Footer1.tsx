@@ -71,7 +71,7 @@ const Footer1: React.FC<Footer1Props> = ({ dataGlobal }) => {
                             <div className="flex md:flex-row flex-col w-full justify-center items-center">
                                 <picture className="md:w-[35%] w-[92%] h-full" >
                                     <img
-                                        src={dataGlobal.logos.primary}
+                                        src="https://firebasestorage.googleapis.com/v0/b/imagenes-de-stock-y-redes.appspot.com/o/logos%2FPoblano-Power-Wash---wh.gif?alt=media&token=b601133b-f65b-4821-93b3-187305c7a62c"
                                         className="w-11/12 md:w-4/5 mx-auto "
                                         alt="logo"
                                         loading="lazy"
