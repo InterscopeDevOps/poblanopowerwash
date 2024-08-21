@@ -12,6 +12,8 @@ import ContentContact from "@/components/Blocks/home/ContenctContact";
 import ServicesComponent from "@/components/Blocks/services/ServicesComponent";
 import LazyImage from "@/components/LazyImage";
 import AreasBlockOne from "@/components/Blocks/areas-we-serve/AreasBlockOne";
+import Modalvideo from "@/components/Blocks/home/ModalVideo";
+
 
 let UrlApi = import.meta.env.API_URL;
 let KetApi = import.meta.env.API_KEY;
@@ -85,6 +87,8 @@ const onePages = data.widgets.onePages;
     dataPhone={dataPhone}
     client:load
   />
+
+  <Modalvideo data={data} client:load />
   <SocialMediaHome dataGlobal={data} client:load />
   {
     data.landingLocations?.length! > 0 && data.widgets.areasweserve ? (
